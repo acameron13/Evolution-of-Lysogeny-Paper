@@ -3,8 +3,7 @@
 #EX: INSIDE OF SymbulationEmp/Data, RUN python3 ../stats_scripts/simple_repeat.py
 import sys
 
-plrs = [0.0, 0.025, 0.05] #prophage loss rates
-cois = [0.0, 0.1] #starting chances of induction
+plrs = [0.0, 0.025, 0.05, 0.075, 0.1] #prophage loss rates
 
 import subprocess
 
@@ -36,8 +35,7 @@ print("Using seeds", start_range, "through", end_range-1)
 
 for a in seeds:
     for b in plrs:
-        for c in cois:
-            command_str = './symbulation_lysis -SEED '+str(a)+' -PROPHAGE_LOSS_RATE '+str(b)+' -CHANCE_OF_INDUCTION '+str(c)+' -FILE_NAME PLR'+str(b)+'_COI'+str(c)
-            settings_filename = "Output_PLR"+str(b)+"_COI"+str(c)+"_SEED"+str(a)+".data"
-            print(command_str)
-            cmd(command_str+" > "+settings_filename)
+        command_str = './symbulation_lysis -SEED '+str(a)+' -PROPHAGE_LOSS_RATE '+str(b)+' -FILE_NAME PLR'+str(b)
+        settings_filename = "Output_PLR"+str(b)+"_SEED"+str(a)+".data"
+        print(command_str)
+        cmd(command_str+" > "+settings_filename)

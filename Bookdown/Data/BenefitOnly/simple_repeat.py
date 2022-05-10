@@ -32,14 +32,12 @@ if(len(sys.argv) > 1):
 
 seeds = range(start_range, end_range)
 
-print("Copying executable to current directory")
-cmd("cp ../../SymbulationEmp/symbulation .")
-print("Using seeds", start_range, "through", end_range - 1)
+print("Using seeds", start_range, "through", end_range-1)
 
 for a in seeds:
     for b in plrs:
         for c in pivs:
-            command_str = './symbulation -SEED '+str(a)+' -PROPHAGE_LOSS_RATE '+str(b)+' -FILE_NAME PLR'+str(b)+'_PIV'+str(c)+' -PHAGE_INC_VAL '+str(c)
+            command_str = './symbulation_lysis -SEED '+str(a)+' -PROPHAGE_LOSS_RATE '+str(b)+' -FILE_NAME PLR'+str(b)+'_PIV'+str(c)+' -PHAGE_INC_VAL '+str(c)
             settings_filename = "Output_PLR"+str(b)+"_PIV"+str(c)+"_SEED"+str(a)+".data"
             print(command_str)
             cmd(command_str+" > "+settings_filename)
